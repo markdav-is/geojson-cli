@@ -5,3 +5,7 @@ obj/
 *.suo
 .vs/
 TestResults/
+/.cr/personal/FavoritesList
+/data
+/output
+/output-signs.zip
