@@ -1,0 +1,57 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-73.9857, 40.7484]
+      },
+      "properties": {
+        "name": "Empire State Building",
+        "height": 443,
+        "floors": 102,
+        "area": 257211.0,
+        "landmark": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-74.0060, 40.7128],
+            [-73.9857, 40.7484],
+            [-73.9442, 40.7282],
+            [-74.0060, 40.7128]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Lower Manhattan Triangle",
+        "height": null,
+        "floors": 0,
+        "area": 1234567.89,
+        "landmark": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-74.0060, 40.7128],
+          [-73.9857, 40.7484]
+        ]
+      },
+      "properties": {
+        "name": "Test Route",
+        "height": 0,
+        "floors": 0,
+        "area": 0.0,
+        "landmark": false
+      }
+    }
+  ]
+}
