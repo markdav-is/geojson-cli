@@ -12,10 +12,14 @@ public static class CsvGenerator
     /// <summary>
     /// Produces a CSV string for the given GeoJSON document.
     /// </summary>
-    public static string GenerateCsv(JsonElement geojson)
-    {
-        var features = SchemaGenerator.GetFeatures(geojson);
+    public static string GenerateCsv(JsonElement geojson) =>
+        GenerateCsv(SchemaGenerator.GetFeatures(geojson));
 
+    /// <summary>
+    /// Produces a CSV string for an already-extracted feature list.
+    /// </summary>
+    public static string GenerateCsv(IReadOnlyList<JsonElement> features)
+    {
         // Collect ordered set of all property keys
         var keySet = new List<string>();
         var keyIndex = new HashSet<string>(StringComparer.Ordinal);

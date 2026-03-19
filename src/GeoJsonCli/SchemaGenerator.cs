@@ -11,9 +11,14 @@ public static class SchemaGenerator
     /// <summary>
     /// Produces a CREATE TABLE DDL string for the given GeoJSON and table name.
     /// </summary>
-    public static string GenerateDdl(JsonElement geojson, string tableName)
+    public static string GenerateDdl(JsonElement geojson, string tableName) =>
+        GenerateDdl(GetFeatures(geojson), tableName);
+
+    /// <summary>
+    /// Produces a CREATE TABLE DDL string for an already-extracted feature list.
+    /// </summary>
+    public static string GenerateDdl(IReadOnlyList<JsonElement> features, string tableName)
     {
-        var features = GetFeatures(geojson);
         var columns = TypeInference.InferColumns(features);
 
         var sb = new StringBuilder();

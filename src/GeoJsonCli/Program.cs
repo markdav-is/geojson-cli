@@ -90,22 +90,23 @@ var resolvedOutput = Path.GetFullPath(outputDir);
 Directory.CreateDirectory(resolvedOutput);
 
 // ---------------------------------------------------------------------------
-// Write DDL
+// Write DDL + CSV (one pair per detected schema group)
 // ---------------------------------------------------------------------------
 
-var ddl = SchemaGenerator.GenerateDdl(geojson, table);
-var ddlPath = Path.Combine(resolvedOutput, $"{table}.sql");
-await File.WriteAllTextAsync(ddlPath, ddl);
-Console.WriteLine($"DDL written to: {ddlPath}");
+var groups = FeatureSplitter.SplitBySchema(SchemaGenerator.GetFeatures(geojson), table);
 
-// ---------------------------------------------------------------------------
-// Write CSV
-// ---------------------------------------------------------------------------
+foreach (var (groupName, groupFeatures) in groups)
+{
+    var ddl = SchemaGenerator.GenerateDdl(groupFeatures, groupName);
+    var ddlPath = Path.Combine(resolvedOutput, $"{groupName}.sql");
+    await File.WriteAllTextAsync(ddlPath, ddl);
+    Console.WriteLine($"DDL written to: {ddlPath}");
 
-var csv = CsvGenerator.GenerateCsv(geojson);
-var csvPath = Path.Combine(resolvedOutput, $"{table}.csv");
-await File.WriteAllTextAsync(csvPath, csv);
-Console.WriteLine($"CSV written to: {csvPath}");
+    var csv = CsvGenerator.GenerateCsv(groupFeatures);
+    var csvPath = Path.Combine(resolvedOutput, $"{groupName}.csv");
+    await File.WriteAllTextAsync(csvPath, csv);
+    Console.WriteLine($"CSV written to: {csvPath}");
+}
 
 return 0;
 
