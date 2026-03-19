@@ -1,23 +1,28 @@
 # geojson-cli
 
-A command-line tool to extract the schema (as a DDL SQL file) and data (as a CSV file) from a GeoJSON file.
+A C# .NET 8 command-line tool that extracts the schema (as a DDL SQL file) and data (as a CSV file) from a GeoJSON file.
 
-## Installation
+## Requirements
 
-```bash
-npm install -g geojson-cli
-```
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 
-Or run directly from the repository:
+## Build
 
 ```bash
-npm install
+dotnet build
 ```
 
 ## Usage
 
 ```
-geojson-cli <input> [options]
+dotnet run --project src/GeoJsonCli -- <input> [options]
+```
+
+Or after publishing:
+
+```bash
+dotnet publish src/GeoJsonCli -c Release
+./publish/geojson-cli <input> [options]
 ```
 
 ### Arguments
@@ -32,13 +37,13 @@ geojson-cli <input> [options]
 |--------|-------------|---------|
 | `-o, --output <dir>` | Output directory for generated files | `.` (current directory) |
 | `-t, --table <name>` | Override the SQL table name | Input filename without extension |
-| `-V, --version` | Output the version number | |
-| `-h, --help` | Display help | |
+| `-V, --version` | Print the version number | |
+| `-h, --help` | Show help | |
 
 ### Example
 
 ```bash
-geojson-cli places.geojson -o ./output
+dotnet run --project src/GeoJsonCli -- places.geojson -o ./output
 ```
 
 This generates two files in `./output/`:
@@ -83,8 +88,8 @@ Geometry is always stored as `TEXT` in WKT format.
 
 `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`
 
-## Development
+## Tests
 
 ```bash
-npm test
+dotnet test
 ```

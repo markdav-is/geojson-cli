@@ -1,2 +1,7 @@
-node_modules/
-*.log
+# .NET build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+TestResults/

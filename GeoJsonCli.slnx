@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GeoJsonCli/GeoJsonCli.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/GeoJsonCli.Tests/GeoJsonCli.Tests.csproj" />
+  </Folder>
+</Solution>
