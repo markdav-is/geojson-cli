@@ -1,10 +1,10 @@
 # geojson-cli
 
-A C# .NET 8 command-line tool that extracts the schema (as a DDL SQL file) and data (as a CSV file) from a GeoJSON file.
+A C# .NET 10 command-line tool that extracts the schema (as a DDL SQL file) and data (as a CSV file) from a GeoJSON file.
 
 ## Requirements
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 ## Build
 

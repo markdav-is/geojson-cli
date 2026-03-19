@@ -91,6 +91,6 @@ public class IntegrationTests : IDisposable
     {
         // The DLL lives next to this test assembly in the output directory.
         var dir = AppContext.BaseDirectory;
-        return Path.Combine(dir, "..", "..", "..", "..", "..", "src", "GeoJsonCli", "bin", "Debug", "net8.0", "GeoJsonCli.dll");
+        return Path.Combine(dir, "..", "..", "..", "..", "..", "src", "GeoJsonCli", "bin", "Debug", "net10.0", "GeoJsonCli.dll");
     }
 }
